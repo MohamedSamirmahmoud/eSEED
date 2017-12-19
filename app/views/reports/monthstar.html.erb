@@ -1,0 +1,33 @@
+<%= form_tag({controller: "reports", action: "star"}, method: "post")  do |form| %>
+  <p>
+    from
+    <%= date_field(:attendance , :from) %><br>
+  </p>
+
+  <p>
+    to
+    <%= date_field(:attendance , :to) %><br>
+  </p>
+
+  <p>
+    <%= submit_tag("Search") %>
+  </p>
+<% end %>
+
+<% if (@employee) %>
+<p>
+  <strong>name</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>email</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Mobile Number</strong>
+  <%= @employee.mobileNumber %>
+</p>
+
+<% end %>

@@ -1,0 +1,38 @@
+
+
+<%= form_tag({controller: "reports", action: "filter"}, method: "post")  do |form| %>
+  <p>
+    from
+    <%= date_field(:attendance , :from) %><br>
+  </p>
+
+  <p>
+    to
+    <%= date_field(:attendance , :to) %><br>
+  </p>
+
+  <p>
+    <%= submit_tag("Search") %>
+  </p>
+<% end %>
+
+
+
+
+<h2>Attendances</h2>
+<% @attendances.each do |attendance| %>
+  <p>
+    <strong>Day:</strong>
+    <%= attendance.day %>
+  </p>
+
+  <p>
+    <strong>Working Hours:</strong>
+    <%= attendance.workingHours %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= attendance.status %>
+  </p>
+<% end %>

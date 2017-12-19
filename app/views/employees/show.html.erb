@@ -1,0 +1,57 @@
+<p>
+  <strong>name</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>email</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Mobile Number</strong>
+  <%= @employee.mobileNumber %>
+</p>
+
+<h2>Attendances</h2>
+<% @employee.attendances.each do |attendance| %>
+  <p>
+    <strong>Day:</strong>
+    <%= attendance.day %>
+  </p>
+
+  <p>
+    <strong>Working Hours:</strong>
+    <%= attendance.workingHours %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= attendance.status %>
+  </p>
+<% end %>
+
+
+
+<h2>Add a attendance:</h2>
+<%= form_with(model: [ @employee, @employee.attendances.build ], local: true) do |form| %>
+  <p>
+    Day
+    <%= date_field(:attendance , :day) %><br>
+  </p>
+  <p>
+    Working Hours
+    <%= number_field(:attendance , :workingHours , in: 1..8, step: 1) %>
+  </p>
+
+  <p>
+    Status
+    <%= select_tag(:status , options_for_select([['Present' , 'Present'] , ['Absent' , 'Absent'] , ['Sick Leave' , 'Sick Leave']]))%>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', employees_path %>

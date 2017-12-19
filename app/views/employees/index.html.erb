@@ -1,0 +1,22 @@
+<h1>Listing Employees</h1>
+<p>
+<%= link_to 'New Employee', new_employee_path %>
+</p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile Number</th>
+  </tr>
+
+  <% @employess.each do |employee| %>
+    <tr>
+      <td><%= employee.name %></td>
+      <td><%= employee.email %></td>
+      <td><%= employee.mobileNumber %></td>
+      <td><%= link_to 'Show', employee_path(employee) %></td>
+      <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+      <td><%= link_to 'Delete' , employee_path(employee) , method: :delete, data: {confirm: 'Are you sure?'}%></td>
+    </tr>
+  <% end %>
+</table>

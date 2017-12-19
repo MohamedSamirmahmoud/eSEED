@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2017-12-19
+  workingHours: 1
+  status: MyString
+  employee: one
+
+two:
+  day: 2017-12-19
+  workingHours: 1
+  status: MyString
+  employee: two

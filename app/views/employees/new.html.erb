@@ -1,0 +1,22 @@
+<%= form_with scope: :employee , url: employees_path ,local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    Mobile Number<br>
+    <%= form.text_field :mobileNumber %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', employees_path %>
